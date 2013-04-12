@@ -1,0 +1,77 @@
+#!/usr/bin/env php
+<?php
+require 'vendor/autoload.php';
+use PhpGpio\Gpio;
+
+$gpio = new GPIO();
+
+
+//=============Pins===============
+$pinRF= 24; //right forward
+$pinRB= 23; //right Backward
+
+$pinLF= 27; //left forward
+$pinLB = 17;  //left Backward
+//================================
+
+
+//====First set all to low========
+$gpio->setup($pinRF, "out");
+$gpio->output($pinRF, 0);
+
+$gpio->setup($pinRB, "out");
+$gpio->output($pinRB, 0);
+
+$gpio->setup($pinLF, "out");
+$gpio->output($pinLF, 0);
+
+$gpio->setup($pinLB, "out");
+$gpio->output($pinLB, 0);
+//===============================
+
+switch($argv[1]){
+	case "F":
+	$gpio->setup($pinRF, "out");
+	$gpio->output($pinRF, 1);
+	$gpio->setup($pinLF, "out");
+	$gpio->output($pinLF, 1);
+	break;
+
+	case "B":
+	$gpio->setup($pinRB, "out");
+	$gpio->output($pinRB, 1);
+	$gpio->setup($pinLB, "out");
+	$gpio->output($pinLB, 1);
+	break;
+
+	case "L":
+	$gpio->setup($pinRF, "out");
+	$gpio->output($pinRF, 1);
+	$gpio->setup($pinLB, "out");
+	$gpio->output($pinLB, 1);
+	break;
+
+	case "R":
+	$gpio->setup($pinRB, "out");
+	$gpio->output($pinRB, 1);
+	$gpio->setup($pinLF, "out");
+	$gpio->output($pinLF, 1);
+	break;
+
+	default:
+	$gpio->setup($pinRF, "out");
+	$gpio->output($pinRF, 0);
+
+	$gpio->setup($pinRB, "out");
+	$gpio->output($pinRB, 0);
+
+	$gpio->setup($pinLF, "out");
+	$gpio->output($pinLF, 0);
+
+	$gpio->setup($pinLB, "out");
+	$gpio->output($pinLB, 0);
+}
+
+
+$gpio->unexportAll();
+?>
