@@ -1,14 +1,17 @@
 <html>
+<?php 
+require ./config.php;
+?>
 <head>
 	<meta name="viewport" 
 	content="width=device-width, initial-scale=1.0, user-scalable=no">
 	<script type="text/javascript" src="./hammer.js"></script>
 	<script type="text/javascript" src="./jquery.min.js"></script>
-    <script src="http://192.168.2.100:8080/get_status.cgi"></script>
-	<script src="http://192.168.2.100:8080/get_camera_params.cgi?user=admin&amp;pwd=123456"></script>
+    <script src="http://<?php echo $webcam;?>/get_status.cgi"></script>
+	<script src="http://<?php echo $webcam;?>/get_camera_params.cgi?user=<?php echo $user;?>&amp;pwd=<?php echo $pass;?>"></script>
 	<script type="text/javascript">
 
-	document.write('<script src="http://192.168.2.100:8080/english/string.js"><\/script>');
+	document.write('<script src="http://<?php echo $webcam;?>/english/string.js"><\/script>');
 
 	var ptz_type=0;	
 	if(top.client_minor==4) ptz_type=1;
@@ -38,11 +41,11 @@
 
 	function decoder_control_2(command)
 	{
-		action_zone.location='http://192.168.2.100:8080/decoder_control.cgi?user=admin&pwd=123456&command='+command;
+		action_zone.location='http://<?php echo $webcam;?>/decoder_control.cgi?user=<?php echo $user;?>&pwd=<?php echo $pass;?>&command='+command;
 	}
 	function camera_control_2(param,value)
 	{
-		action_zone.location='http://192.168.2.100:8080/camera_control.cgi?user=admin&pwd=123456&param='+param+'&value='+value;
+		action_zone.location='http://<?php echo $webcam;?>/camera_control.cgi?user=<?php echo $user;?>&pwd=<?php echo $pass;?>&param='+param+'&value='+value;
 	}
 
 	function vpatrol_onclick() 
@@ -109,7 +112,7 @@ function reload_image()
  //   window.status='';
  //////////////////////
  var xx = new Image();
- xx.src = "http://192.168.2.100:8080/snapshot.cgi?user=admin&pwd=123456&count="+count;	
+ xx.src = "http://<?php echo $webcam;?>/snapshot.cgi?user=<?php echo $user;?>&pwd=<?php echo $pass;?>&count="+count;	
  count++;
  document.getElementById("imgDisplay").src = xx.src;
  window.status=" ";
@@ -481,12 +484,12 @@ form, input, h1, h2, button, label, a, img {
 </style>
 </head>
 <body onload="startup()" style="background-color: rgb(103, 107, 118);">
-	<center><img id="imgDisplay" name="imgDisplay" alt="video" src="http://192.168.2.100:8080/snapshot.cgi?user=admin&amp;pwd=123456&amp;count=1" onload="load_video()" width="100%" height="auto" style="max-width:320px"><br>
+	<center><img id="imgDisplay" name="imgDisplay" alt="video" src="http://<?php echo $webcam;?>/snapshot.cgi?user=<?php echo $user;?>&amp;pwd=<?php echo $pass;?>&amp;count=1" onload="load_video()" width="100%" height="auto" style="max-width:320px"><br>
 	<td width="112">
-			    <div><img src="http://192.168.2.100:8080/images/ptz1.gif"><img src="http://192.168.2.100:8080/images/ptz3.gif"><img src="http://192.168.2.100:8080/images/ptz2.gif"></div>
-			    <div><img src="http://192.168.2.100:8080/images/leftup_up.gif" onmousedown="leftup_onmousedown()" onmouseup="leftup_onmouseup()"><img src="http://192.168.2.100:8080/images/up_up.gif" onmousedown="up_onmousedown()" onmouseup="up_onmouseup()"><img src="http://192.168.2.100:8080/images/rightup_up.gif" onmousedown="rightup_onmousedown()" onmouseup="rightup_onmouseup()"></div>
-			    <div><img src="http://192.168.2.100:8080/images/left_up.gif" onmousedown="left_onmousedown()" onmouseup="left_onmouseup()"><img id="gocenter" src="http://192.168.2.100:8080/images/center.gif" onclick="center_onclick()" title="center"><img src="http://192.168.2.100:8080/images/right_up.gif" onmousedown="right_onmousedown()" onmouseup="right_onmouseup()"></div>
-			    <div><img src="http://192.168.2.100:8080/images/leftdown_up.gif" onmousedown="leftdown_onmousedown()" onmouseup="leftdown_onmouseup()"><img src="http://192.168.2.100:8080/images/down_up.gif" onmousedown="down_onmousedown()" onmouseup="down_onmouseup()"><img src="http://192.168.2.100:8080/images/rightdown_up.gif" onmousedown="rightdown_onmousedown()" onmouseup="rightdown_onmouseup()"></div>
+			    <div><img src="http://<?php echo $webcam;?>/images/ptz1.gif"><img src="http://<?php echo $webcam;?>/images/ptz3.gif"><img src="http://<?php echo $webcam;?>/images/ptz2.gif"></div>
+			    <div><img src="http://<?php echo $webcam;?>/images/leftup_up.gif" onmousedown="leftup_onmousedown()" onmouseup="leftup_onmouseup()"><img src="http://<?php echo $webcam;?>/images/up_up.gif" onmousedown="up_onmousedown()" onmouseup="up_onmouseup()"><img src="http://<?php echo $webcam;?>/images/rightup_up.gif" onmousedown="rightup_onmousedown()" onmouseup="rightup_onmouseup()"></div>
+			    <div><img src="http://<?php echo $webcam;?>/images/left_up.gif" onmousedown="left_onmousedown()" onmouseup="left_onmouseup()"><img id="gocenter" src="http://<?php echo $webcam;?>/images/center.gif" onclick="center_onclick()" title="center"><img src="http://<?php echo $webcam;?>/images/right_up.gif" onmousedown="right_onmousedown()" onmouseup="right_onmouseup()"></div>
+			    <div><img src="http://<?php echo $webcam;?>/images/leftdown_up.gif" onmousedown="leftdown_onmousedown()" onmouseup="leftdown_onmouseup()"><img src="http://<?php echo $webcam;?>/images/down_up.gif" onmousedown="down_onmousedown()" onmouseup="down_onmouseup()"><img src="http://<?php echo $webcam;?>/images/rightdown_up.gif" onmousedown="rightdown_onmousedown()" onmouseup="rightdown_onmouseup()"></div>
 		    </td></center>
 <iframe style="DISPLAY: none" src="" name="action_zone"></iframe>
 	<!--<textarea id="txtAREA" style="height:300px;"></textarea>-->
