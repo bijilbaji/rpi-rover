@@ -1,6 +1,6 @@
 <html>
 <?php 
-require ./config.php;
+require "./config.php";
 ?>
 <head>
 	<meta name="viewport"
