@@ -10,8 +10,8 @@ $gpio = new GPIO();
 $pinRF= 24; //right forward
 $pinRB= 23; //right Backward
 
-$pinLF= 27; //left forward
-$pinLB = 17;  //left Backward
+$pinLF= 22; //left forward
+$pinLB = 17; //left Backward
 //================================
 
 
