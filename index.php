@@ -379,10 +379,10 @@ function redirect(){
 		</td>
 		<iframe style="DISPLAY: none" src="" name="action_zone"></iframe>
 		<div style="width: 316px;height: 145px;">
-		<div class="button" id="F" onmousedown="mDown(this)" onmouseup="mUp(this)" style="margin-top: 10px;margin-left: 130px;"></div>
+		<div class="button" id="B" onmousedown="mDown(this)" onmouseup="mUp(this)" style="margin-top: 10px;margin-left: 130px;"></div>
 		<div class="button" id="L" onmousedown="mDown(this)" onmouseup="mUp(this)" style="margin-top: 72px;margin-left: 68px;"></div>
 		<div class="button" id="R" onmousedown="mDown(this)" onmouseup="mUp(this)" style="margin-top: 72px;margin-left: 193px;"></div>
-		<div class="button" id="B" onmousedown="mDown(this)" onmouseup="mUp(this)" style="margin-top: 72px;margin-left: 131px;"></div>
+		<div class="button" id="F" onmousedown="mDown(this)" onmouseup="mUp(this)" style="margin-top: 72px;margin-left: 131px;"></div>
 	</div>
 	</center>
 	<script>
