@@ -369,12 +369,12 @@ function default_all()
 			break;
 
 			case 'dragup':
-			D_up();
+			D_down();
 			//log("^^dragup");
 			break;
 
 			case 'dragdown':
-			D_down();
+			D_up();
 			//log("||dragdown");
 			break;
 
