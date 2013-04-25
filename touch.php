@@ -348,7 +348,7 @@ function default_all()
 		//txtArea.innerHTML = "";
 
 		var element = document.getElementById('imgDisplay');
-		var hammertime = Hammer(element).on("release dragleft dragup dragdown dragright swipeleft swiperight swipeup", handleHammer);
+		var hammertime = Hammer(element).bind("release dragleft dragup dragdown dragright swipeleft swiperight swipeup", handleHammer);
 		$('img').disableSelection();
 
 	}
